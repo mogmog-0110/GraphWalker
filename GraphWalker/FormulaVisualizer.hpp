@@ -8,6 +8,8 @@ public:
 	// 数式の表示範囲、ステップ幅の初期化
 	FormulaVisualizer(double xMin = -10, double xMax = 10, double step = 0.1);
 	bool setExpression(const String& expr);
+	Array<Vec2> getPoints() const;
+	void clearPoints();
 	void generatePoints(const GraphArea& graph);
 	void draw(const ColorF& color = Palette::Red) const;
 

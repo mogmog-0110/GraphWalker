@@ -8,10 +8,17 @@ enum class State
 	Game,
 };
 
+enum class GameState
+{
+	Playing,
+	Clear,
+};
+
 enum class ObjectType
 {
 	Player,
 	StaticPlatform,
+	StaticLineString,
 	Flag
 };
 
@@ -25,16 +32,6 @@ enum class QuadrantMode
 };
 
 // 画面サイズ
-const Size baseSize = {1280, 720};
+const Size baseSize = { 1280, 720 };
 
-// 共有データ
-struct GameData
-{
-	// ステージ数
-	int32 stageCount = 3;
-
-	// ステージのクリアフラグ
-	Array<bool> stageClearFlags = Array<bool>(stageCount, false);
-};
-
-using App = SceneManager<State, GameData>;
+using App = SceneManager<State>;

@@ -80,6 +80,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <AdditionalDependencies>Siv3D_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Think\OneDrive\ドキュメント\OpenSiv3D_0.6.16\lib\Windows;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)App"</Command>
@@ -117,12 +119,15 @@
   <ItemGroup>
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="Common.hpp" />
+    <ClCompile Include="Flag.cpp" />
     <ClCompile Include="FormulaVisualizer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GraphArea.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectFactory.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="StageBuilder.cpp" />
+    <ClCompile Include="StaticLineString.cpp" />
     <ClCompile Include="StaticPlatform.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -335,12 +340,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asset.hpp" />
+    <ClInclude Include="Flag.hpp" />
     <ClInclude Include="FormulaVisualizer.hpp" />
+    <ClInclude Include="GameDataManager.hpp" />
     <ClInclude Include="GraphArea.hpp" />
     <ClInclude Include="IGameObject.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="ObjectFactory.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="StageBuilder.hpp" />
+    <ClInclude Include="StaticLineString.hpp" />
     <ClInclude Include="StaticPlatform.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.hpp" />

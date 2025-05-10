@@ -1,8 +1,8 @@
 ﻿#include "stdafx.h"
 #include "StaticPlatform.hpp"
 
-StaticPlatform::StaticPlatform(P2Body body)
-	: m_body(body)
+StaticPlatform::StaticPlatform(P2Body body, SizeF size)
+	: m_body(body), m_size(size)
 {
 }
 

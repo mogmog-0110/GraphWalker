@@ -2,11 +2,11 @@
 # include "Common.hpp"
 # include "IGameObject.hpp"
 
-class StaticPlatform : public IGameObject
+class StaticLineString : public IGameObject
 {
 public:
-	StaticPlatform() = default;
-	explicit StaticPlatform(P2Body body, SizeF size);
+	StaticLineString() = default;
+	explicit StaticLineString(P2Body body);
 
 	void update(double dt) override;
 	void draw() const override;
@@ -18,6 +18,5 @@ public:
 
 private:
 	P2Body m_body;
-	SizeF m_size;
-	Color m_color = Palette::Black;
+	Color m_color = Palette::Blue;
 };

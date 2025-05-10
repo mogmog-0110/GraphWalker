@@ -12,9 +12,12 @@ void Main()
 	// アセットの登録
 	Assets::init();
 
+	// 背景色の設定
+	Scene::SetBackground(Assets::BackgroundColor);
+
 	// シーンマネージャーの初期化
 	App manager;
-	//manager.add<Title>(State::Title);
+	manager.add<Title>(State::Title);
 	manager.add<Game>(State::Game);
 
 	while (System::Update())
@@ -23,7 +26,7 @@ void Main()
 		if (not manager.update())
 		{
 			break; // シーンマネージャーが終了したらループを抜ける
-		}	
+		}
 	}
 }
 

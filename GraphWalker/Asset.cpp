@@ -4,6 +4,7 @@
 void Assets::init()
 {
 	// フォントの登録
+	FontAsset::Register(U"TextFont", 16);
 	FontAsset::Register(U"SmallFont", 24);
 	FontAsset::Register(U"MidiumFont", 48);
 	FontAsset::Register(U"BigFont", 64);

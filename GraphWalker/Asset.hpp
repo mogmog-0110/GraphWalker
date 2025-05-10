@@ -15,4 +15,5 @@ namespace Assets
 	inline constexpr Color ThemeColor = Palette::Skyblue;
 	inline constexpr Color SubColor = Palette::Gray;
 	inline constexpr Color GraphColor = Palette::White;
+	inline constexpr ColorF BackgroundColor = ColorF{ 0.6, 0.8, 0.7 };
 }

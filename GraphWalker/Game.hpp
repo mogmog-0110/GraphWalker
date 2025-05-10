@@ -5,6 +5,8 @@
 # include "ObjectFactory.hpp"
 # include "GraphArea.hpp"
 # include "FormulaVisualizer.hpp"
+# include "GameDataManager.hpp"
+# include "StageBuilder.hpp"
 
 class Game : public App::Scene
 {
@@ -15,25 +17,28 @@ public:
 	void draw() const override;
 
 private:
+	GameState m_gameState = GameState::Playing;
+	bool m_isClear = false;
 	P2World m_world{ 980.0 };
 	Array<P2Body> m_bodies;
 
 	HashTable<P2BodyID, String> m_idMap;
-	HashTable<String, std::unique_ptr<IGameObject>> m_objects;
-	HashTable<ObjectType, int32> m_nameCounters;
+	HashTable<String, std::shared_ptr<IGameObject>> m_objects;
 
 	GraphArea m_graph;
 	RectF m_graphRect = RectF{ 60, 30, baseSize.x - 280, baseSize.y - 120 };
 
 	FormulaVisualizer m_formula;
 	TextEditState m_formulaInput;
+	Optional<int32> m_nextFocusIndex;
+
+	Array<String> m_formulaHistory;
+
+
 
 	double m_stepTime = (1.0 / 200.0); // 物理演算のシミュレーションステップ
 	double m_accumulatedTime = 0.0; //物理演算のシミュレーション蓄積時間
 
-	String generateObjectName(ObjectType type);
-	String toString(ObjectType type) const;
-
-
-
+	void generateStaticFromFormula();
+	void resetStage();
 };
